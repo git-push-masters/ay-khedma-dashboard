@@ -1,0 +1,53 @@
+@import "../../assests/styles/responsive.scss";
+.navbar {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .rightNavbar {
+    font-weight: bold;
+  }
+  .leftNavbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .icon {
+      font-size: 20px;
+      color: #fff;
+      @include sm {
+        display: none;
+      }
+    }
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      img {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .notifications {
+      position: relative;
+      display: flex;
+      align-items: center;
+      .counter {
+        width: 12px;
+        height: 12px;
+        font-size: 10px;
+        position: absolute;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        top: -5px;
+        right: -5px;
+        background-color: red;
+        border-radius: 50%;
+      }
+    }
+  }
+}

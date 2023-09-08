@@ -1,0 +1,67 @@
+@import "../../assests/styles/responsive.scss";
+.boxchart {
+  display: flex;
+  height: 100%;
+  @include sm {
+    flex-direction: column;
+  }
+
+  .boxInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 3;
+    @include sm {
+      gap: 20px;
+    }
+    span {
+      font-size: 40px;
+      font-weight: bold;
+      display: block;
+      @include xxl {
+        font-size: 20px;
+      }
+    }
+    .titleContainer {
+      display: flex;
+      .title {
+        font-size: 20px;
+        font-weight: 300;
+        @include xxl {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .chartInfo {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .chart {
+      width: 100%;
+      height: 100%;
+      @include sm {
+        height: 40px;
+      }
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      @include xxl {
+        font-size: 16px;
+      }
+      .percentage {
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .duration {
+        font-size: 14px;
+      }
+    }
+  }
+}
