@@ -6,28 +6,24 @@ import AllOutIcon from "@mui/icons-material/AllOut";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
 const Navbar = () => {
-  return (
-    <div className='navbar'>
-      <div className='rightNavbar'>dashboard</div>
-      <div className='leftNavbar'>
-        <SearchIcon className='icon' />
-        <AppsIcon className='icon' />
-        <AllOutIcon className='icon' />
-        <div className='notifications'>
-          <NotificationsIcon className='icon' />
-          <span className='counter'>2</span>
-        </div>
+    return (
+        <div className='navbar'>
+            <div className='rightNavbar'>Ay Khedma</div>
+            <div className='leftNavbar'>
+                <SearchIcon className='icon' />
+                <AppsIcon className='icon' />
+                <AllOutIcon className='icon' />
+                <div className='notifications'>
+                    <NotificationsIcon className='icon' />
+                    <span className='counter'>2</span>
+                </div>
 
-        <div className='user'>
-          <img
-            src='https://images.pexels.com/photos/11038549/pexels-photo-11038549.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load'
-            alt=''
-          />
-          <span>Jane</span>
+                <div className='user'>
+                    <span>Jane</span>
+                </div>
+                <SettingsIcon className='icon' />
+            </div>
         </div>
-        <SettingsIcon className='icon' />
-      </div>
-    </div>
-  );
+    );
 };
 export default Navbar;

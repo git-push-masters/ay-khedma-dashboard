@@ -17,74 +17,73 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { Link } from "react-router-dom";
 
 const Menu = () => {
-  function getAvataricon(icon: string): JSX.Element | undefined {
-    switch (icon) {
-      case "HomeIcon":
-        return <HomeIcon />;
+    function getAvataricon(icon: string): JSX.Element | undefined {
+        switch (icon) {
+            case "HomeIcon":
+                return <HomeIcon />;
 
-      case "PersonIcon":
-        return <PersonIcon />;
+            case "PersonIcon":
+                return <PersonIcon />;
 
-      case "GroupIcon":
-        return <GroupIcon />;
+            case "GroupIcon":
+                return <GroupIcon />;
 
-      case "ProductionQuantityLimitsIcon":
-        return <ProductionQuantityLimitsIcon />;
+            case "ProductionQuantityLimitsIcon":
+                return <ProductionQuantityLimitsIcon />;
 
-      case "LocalShippingIcon":
-        return <LocalShippingIcon />;
+            case "LocalShippingIcon":
+                return <LocalShippingIcon />;
 
-      case "GridViewIcon":
-        return <GridViewIcon />;
+            case "GridViewIcon":
+                return <GridViewIcon />;
 
-      case "DocumentScannerIcon":
-        return <DocumentScannerIcon />;
+            case "DocumentScannerIcon":
+                return <DocumentScannerIcon />;
 
-      case "FormatListNumberedRtlIcon":
-        return <FormatListNumberedRtlIcon />;
+            case "FormatListNumberedRtlIcon":
+                return <FormatListNumberedRtlIcon />;
 
-      case "CalendarMonthIcon":
-        return <CalendarMonthIcon />;
+            case "CalendarMonthIcon":
+                return <CalendarMonthIcon />;
 
-      case "SettingsIcon":
-        return <SettingsIcon />;
+            case "SettingsIcon":
+                return <SettingsIcon />;
 
-      case "BackupIcon":
-        return <BackupIcon />;
+            case "BackupIcon":
+                return <BackupIcon />;
 
-      case "ShowChartIcon":
-        return <ShowChartIcon />;
+            case "ShowChartIcon":
+                return <ShowChartIcon />;
 
-      case "VpnKeyIcon":
-        return <VpnKeyIcon />;
+            case "VpnKeyIcon":
+                return <VpnKeyIcon />;
 
-      default:
-        <></>;
+            default:
+                <></>;
+        }
     }
-  }
 
-  return (
-    <div className='menu'>
-      {menu.map((item) => (
-        <div className='item' key={item.id}>
-          <span className='title'> {item.title}</span>
-          {item.listItems.map((listItem) => (
-            <Link className='listItem' to={listItem.url} key={listItem.id}>
-              {getAvataricon(listItem.icon)}
-              <span className='listItemTitle'>{listItem.title}</span>
-            </Link>
-          ))}
+    return (
+        <div className='menu'>
+            {menu.map(item => (
+                <div className='item' key={item.id}>
+                    {/* <span className='title'> {item.title}</span> */}
+                    {item.listItems.map(listItem => (
+                        <Link
+                            className='listItem'
+                            to={listItem.url}
+                            key={listItem.id}
+                        >
+                            {getAvataricon(listItem.icon)}
+                            <span className='listItemTitle'>
+                                {listItem.title}
+                            </span>
+                        </Link>
+                    ))}
+                </div>
+            ))}
         </div>
-      ))}
-      {/* <div className='item'>
-        <span className='title'> MENU</span>
-        <Link className='listItem' to=''>
-          <HomeIcon className='icon' />
-          <span className='listItemTitle'>Home</span>
-        </Link>
-      </div> */}
-    </div>
-  );
+    );
 };
 
 export default Menu;
