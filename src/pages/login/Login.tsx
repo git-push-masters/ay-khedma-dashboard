@@ -14,6 +14,9 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import authService from "../../services/auth";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { GridLoadingOverlay } from "@mui/x-data-grid";
 
 function Copyright(props: any) {
     return (
@@ -34,6 +37,9 @@ function Copyright(props: any) {
 }
 
 export default function Login() {
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
@@ -41,6 +47,12 @@ export default function Login() {
             const password = event.currentTarget.password.value;
 
             const res = await authService.login(username, password);
+
+            localStorage.clear();
+            const { token, name } = res.data.body;
+            localStorage.setItem("token", token);
+            localStorage.setItem("name", name);
+            navigate("/");
             console.log(res.data);
         } catch (err) {
             console.log(err);
@@ -93,6 +105,14 @@ export default function Login() {
                         id='password'
                         autoComplete='current-password'
                     />
+                    <Button
+                        type='submit'
+                        fullWidth
+                        variant='contained'
+                        sx={{ mt: 3, mb: 2 }}
+                    >
+                        Login
+                    </Button>
                 </Box>
             </Box>
             <Copyright sx={{ mt: 8, mb: 4 }} />

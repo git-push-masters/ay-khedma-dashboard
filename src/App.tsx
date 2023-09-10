@@ -11,64 +11,69 @@ import Login from "./pages/login/Login";
 import User from "./pages/user/User";
 import Product from "./pages/product/Product";
 import Time from "./pages/time/Time";
+import ProtectedRoute from "./utils/ProtectedRoute";
 function App() {
-  const Layout = () => {
+    const Layout = () => {
+        return (
+            <div className='main'>
+                <Navbar />
+                <div className='container'>
+                    <div className='menuContainer'>
+                        <Menu />
+                    </div>
+                    <div className='contentContainer'>
+                        <Outlet />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    };
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: (
+                <ProtectedRoute>
+                    <Layout />
+                </ProtectedRoute>
+            ),
+            children: [
+                {
+                    path: "/",
+                    element: <Home />,
+                },
+                {
+                    path: "/users",
+                    element: <Users />,
+                },
+                {
+                    path: "/products",
+                    element: <Products />,
+                },
+                {
+                    path: "/products/:productId",
+                    element: <Product />,
+                },
+                {
+                    path: "/users/:userId",
+                    element: <User />,
+                },
+                {
+                    path: "/calender",
+                    element: <Time />,
+                },
+            ],
+        },
+        {
+            path: "/login",
+            element: <Login />,
+        },
+    ]);
     return (
-      <div className='main'>
-        <Navbar />
-        <div className='container'>
-          <div className='menuContainer'>
-            <Menu />
-          </div>
-          <div className='contentContainer'>
-            <Outlet />
-          </div>
+        <div>
+            <RouterProvider router={router} />
         </div>
-        <Footer />
-      </div>
     );
-  };
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/users",
-          element: <Users />,
-        },
-        {
-          path: "/products",
-          element: <Products />,
-        },
-        {
-          path: "/products/:productId",
-          element: <Product />,
-        },
-        {
-          path: "/users/:userId",
-          element: <User />,
-        },
-        {
-          path: "/calender",
-          element: <Time />,
-        },
-      ],
-    },
-    {
-      path: "/login",
-      element: <Login />,
-    },
-  ]);
-  return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
-  );
 }
 
 export default App;
