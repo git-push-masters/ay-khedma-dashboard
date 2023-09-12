@@ -4,6 +4,7 @@ import DataTable from "../../components/dataTable/DataTable";
 import { GridColDef } from "@mui/x-data-grid";
 import Add from "../../components/add/Add";
 import userService from "../../services/user";
+import client from "../../services/config";
 
 const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 20 },
@@ -12,7 +13,7 @@ const columns: GridColDef[] = [
         headerName: "avatar",
         width: 70,
         renderCell: params => (
-            <img src={"http://localhost:4000/" + params.row.avatar} alt='' />
+            <img src={client.getUri() + params.row.avatar} alt='' />
         ),
     },
     {
@@ -57,7 +58,6 @@ const Users = () => {
     const getUsers = async () => {
         try {
             const res = await userService.getAllUsers();
-            console.log(res.data);
             setUserRows(res.data.data);
         } catch (err) {
             console.log(err);

@@ -15,6 +15,12 @@ export const menu = [
                 url: "/users",
                 icon: "GroupIcon",
             },
+            {
+                id: 3,
+                title: "Requests",
+                url: "/requests",
+                icon: "CalendarMonthIcon",
+            },
         ],
         // listItems: [
         //   {

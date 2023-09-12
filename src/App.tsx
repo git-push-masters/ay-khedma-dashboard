@@ -6,12 +6,10 @@ import Menu from "./components/menu/Menu";
 import Footer from "./components/footer/Footer";
 import Home from "./pages/home/Home";
 import Users from "./pages/users/Users";
-import Products from "./pages/products/Products";
 import Login from "./pages/login/Login";
 import User from "./pages/user/User";
-import Product from "./pages/product/Product";
-import Time from "./pages/time/Time";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import Requests from "./pages/requests";
 function App() {
     const Layout = () => {
         return (
@@ -47,20 +45,12 @@ function App() {
                     element: <Users />,
                 },
                 {
-                    path: "/products",
-                    element: <Products />,
-                },
-                {
-                    path: "/products/:productId",
-                    element: <Product />,
-                },
-                {
                     path: "/users/:userId",
                     element: <User />,
                 },
                 {
-                    path: "/calender",
-                    element: <Time />,
+                    path: "/requests",
+                    element: <Requests />,
                 },
             ],
         },
