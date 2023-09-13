@@ -11,14 +11,18 @@ interface Iprops {
     columns: GridColDef[];
     rows: object[];
     slug: string;
+    getUsers: () => void;
 }
 
 const DataTable = (props: Iprops) => {
     const handleDelete = async (id: string) => {
         try {
-            const res = await userService.deleteUser(id);
+            const res = await userService.deleteUser(id.toString());
             console.log(res.data);
-        } catch (error) {}
+            props.getUsers();
+        } catch (error: any) {
+            console.log(error.response.data);
+        }
     };
 
     const actionColumn: GridColDef = {
