@@ -21,118 +21,14 @@ export const menu = [
                 url: "/requests",
                 icon: "CalendarMonthIcon",
             },
+            {
+                id: 4,
+                title: "Sections",
+                url: "/sections",
+                icon: "GridViewIcon",
+            },
         ],
-        // listItems: [
-        //   {
-        //     id: 1,
-        //     title: "Homepage",
-        //     url: "/",
-        //     icon: "HomeIcon",
-        //   },
-        //   {
-        //     id: 2,
-        //     title: "Profile",
-        //     url: "/users/1",
-        //     icon: "PersonIcon",
-        //   },
-        // ],
     },
-    //   {
-    //     id: 2,
-    //     title: "lists",
-    //     listItems: [
-    //       {
-    //         id: 1,
-    //         title: "Users",
-    //         url: "/users",
-    //         icon: "GroupIcon",
-    //       },
-    //       {
-    //         id: 2,
-    //         title: "Products",
-    //         url: "/products",
-    //         icon: "ProductionQuantityLimitsIcon",
-    //       },
-    //       {
-    //         id: 3,
-    //         title: "Orders",
-    //         url: "/orders",
-    //         icon: "LocalShippingIcon",
-    //       },
-    //       {
-    //         id: 4,
-    //         title: "Posts",
-    //         url: "/posts",
-    //         icon: "",
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     id: 3,
-    //     title: "general",
-    //     listItems: [
-    //       {
-    //         id: 1,
-    //         title: "Elements",
-    //         url: "/",
-    //         icon: "GridViewIcon",
-    //       },
-    //       {
-    //         id: 2,
-    //         title: "Notes",
-    //         url: "/",
-    //         icon: "DocumentScannerIcon",
-    //       },
-    //       {
-    //         id: 3,
-    //         title: "Forms",
-    //         url: "/",
-    //         icon: "FormatListNumberedRtlIcon",
-    //       },
-    //       {
-    //         id: 4,
-    //         title: "Calendar",
-    //         url: "/calender",
-    //         icon: "CalendarMonthIcon",
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     id: 4,
-    //     title: "Maintenance",
-    //     listItems: [
-    //       {
-    //         id: 1,
-    //         title: "Settings",
-    //         url: "/",
-    //         icon: "SettingsIcon",
-    //       },
-    //       {
-    //         id: 2,
-    //         title: "Backups",
-    //         url: "/",
-    //         icon: "BackupIcon",
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     id: 5,
-    //     title: "analytics",
-    //     listItems: [
-    //       {
-    //         id: 1,
-    //         title: "Charts",
-    //         url: "/",
-    //         icon: "ShowChartIcon",
-    //       },
-    //       {
-    //         id: 2,
-    //         title: "Logs",
-    //         url: "/",
-    //         icon: "VpnKeyIcon",
-    //       },
-    //     ],
-    //   },
 ];
 
 export const topDealUsers = [

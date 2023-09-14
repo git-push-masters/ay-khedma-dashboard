@@ -1,34 +1,22 @@
-import React from "react";
 import "./dataTable.scss";
-
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
-import userService from "../../services/user";
+import { Button } from "@mui/material";
 
 interface Iprops {
     columns: GridColDef[];
     rows: object[];
     slug: string;
-    getUsers: () => void;
+    handleDelete: (id: string) => void;
 }
 
 const DataTable = (props: Iprops) => {
-    const handleDelete = async (id: string) => {
-        try {
-            const res = await userService.deleteUser(id.toString());
-            console.log(res.data);
-            props.getUsers();
-        } catch (error: any) {
-            console.log(error.response.data);
-        }
-    };
-
     const actionColumn: GridColDef = {
         field: "action",
         headerName: "Action",
-        width: 150,
+        flex: 1,
         renderCell: params => {
             return (
                 <div className='action'>
@@ -37,7 +25,7 @@ const DataTable = (props: Iprops) => {
                     </Link>
                     <div
                         className='delete'
-                        onClick={() => handleDelete(params.row.id)}
+                        onClick={() => props.handleDelete(params.row.id)}
                     >
                         <DeleteIcon />
                     </div>
@@ -45,8 +33,12 @@ const DataTable = (props: Iprops) => {
             );
         },
     };
+
     return (
         <div className='dataTable'>
+            <Button variant='contained' className='addBtn'>
+                Add
+            </Button>
             <DataGrid
                 className='dataGrid'
                 rows={props.rows}
@@ -60,10 +52,7 @@ const DataTable = (props: Iprops) => {
                 }}
                 slots={{ toolbar: GridToolbar }}
                 slotProps={{
-                    toolbar: {
-                        showQuickFilter: true,
-                        quickFilterProps: { debounceMs: 500 },
-                    },
+                    toolbar: {},
                 }}
                 pageSizeOptions={[5]}
                 checkboxSelection

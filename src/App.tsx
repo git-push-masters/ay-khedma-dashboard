@@ -10,6 +10,7 @@ import Login from "./pages/login/Login";
 import User from "./pages/user/User";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Requests from "./pages/requests";
+import Sections from "./pages/sections";
 function App() {
     const Layout = () => {
         return (
@@ -51,6 +52,10 @@ function App() {
                 {
                     path: "/requests",
                     element: <Requests />,
+                },
+                {
+                    path: "/sections",
+                    element: <Sections />,
                 },
             ],
         },

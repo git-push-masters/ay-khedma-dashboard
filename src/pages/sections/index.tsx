@@ -1,72 +1,55 @@
 import React, { useEffect, useState } from "react";
-import "./users.scss";
+import "./styles.scss";
 import DataTable from "../../components/dataTable/DataTable";
 import { GridColDef } from "@mui/x-data-grid";
 import Add from "../../components/add/Add";
 import userService from "../../services/user";
 import client from "../../services/config";
+import sectionService from "../../services/section";
 
 const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 20 },
     {
         field: "img",
-        headerName: "Avatar",
-        width: 70,
+        headerName: "Icon",
+        flex: 1,
         renderCell: params => (
-            <img src={client.getUri() + params.row.avatar} alt='' />
+            <img src={client.getUri() + params.row.icon} alt='' />
         ),
     },
     {
         field: "name",
         headerName: "Name",
-        width: 220,
+        flex: 1,
         type: "string",
-    },
-    {
-        field: "phone",
-        type: "string",
-        headerName: "Phone",
-        width: 130,
-    },
-    {
-        field: "email",
-        headerName: "Email",
-        type: "string",
-        width: 180,
     },
     {
         field: "createdAt",
         headerName: "Created At",
-        width: 120,
+        flex: 1,
         type: "string",
         renderCell: params => (
             <>{new Date(params.row.createdAt).toDateString()}</>
         ),
     },
-    {
-        field: "isTrusted",
-        headerName: "Trusted",
-        width: 70,
-        type: "boolean",
-    },
 ];
 
-const Users = () => {
+const Sections = () => {
     const [open, setOpen] = useState(false);
-    const [userRows, setUserRows] = useState([]);
+    const [sectionRows, setSectionRows] = useState([]);
 
-    const getUsers = async () => {
+    const getSections = async () => {
         try {
-            const res = await userService.getAllUsers();
-            setUserRows(res.data.data);
+            const res = await sectionService.getAllSections();
+            setSectionRows(res.data.data);
         } catch (err) {
             console.log(err);
         }
     };
 
-    const handleDeleteUser = async (id: string) => {
+    const handleDeleteSection = async (id: string) => {
         try {
-            const res = await userService.deleteUser(id.toString());
+            const res = await sectionService.deleteSection(id);
             console.log(res.data);
         } catch (error: any) {
             console.log(error.response.data);
@@ -74,23 +57,24 @@ const Users = () => {
     };
 
     useEffect(() => {
-        getUsers();
+        getSections();
     }, []);
 
     return (
         <div className='users'>
             <div className='info'>
-                <h1>Users</h1>
+                <h1>Sections</h1>
             </div>
             <DataTable
-                slug='users'
+                slug='sections'
                 columns={columns}
-                rows={userRows}
-                handleDelete={handleDeleteUser}
+                rows={sectionRows}
+                handleDelete={handleDeleteSection}
+                // setOpen={setOpen}
             />
             {open && <Add slug='users' columns={columns} setOpen={setOpen} />}
         </div>
     );
 };
 
-export default Users;
+export default Sections;
