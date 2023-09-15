@@ -14,6 +14,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import BackupIcon from "@mui/icons-material/Backup";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { Link } from "react-router-dom";
 
 const Menu = () => {
@@ -57,6 +58,9 @@ const Menu = () => {
 
             case "VpnKeyIcon":
                 return <VpnKeyIcon />;
+
+            case "UserIcon":
+                return <AdminPanelSettingsIcon />;
 
             default:
                 <></>;

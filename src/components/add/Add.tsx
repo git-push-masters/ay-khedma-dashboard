@@ -1,10 +1,11 @@
 import React from "react";
 import "./add.scss";
-import { GridColDef } from "@mui/x-data-grid";
+import { error } from "console";
 interface Iprops {
     columns: any[];
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     slug: string;
+    errors?: any[];
     onSubmit?: (e: any) => void;
 }
 const Add = (props: Iprops) => {
@@ -31,6 +32,14 @@ const Add = (props: Iprops) => {
                                 />
                             </div>
                         ))}
+
+                    {props.errors?.length && (
+                        <div className='errContainer'>
+                            {props.errors.map((err: any) => (
+                                <p className='err'>* {err}</p>
+                            ))}
+                        </div>
+                    )}
                     <button className='submit'>Send</button>
                 </form>
             </div>

@@ -45,6 +45,7 @@ const Sections = () => {
     const [name, setName] = useState("");
     const [icon, setIcon] = useState(null);
     const [editSec, setEditSec] = useState<any>(null);
+    const [errors, setErrors] = useState([]);
 
     const addColumns = [
         {
@@ -82,6 +83,7 @@ const Sections = () => {
         try {
             const res = await sectionService.deleteSection(id);
             console.log(res.data);
+            getSections();
         } catch (error: any) {
             console.log(error.response.data);
         }
@@ -104,6 +106,7 @@ const Sections = () => {
             getSections();
         } catch (error: any) {
             console.log(error.response.data);
+            setErrors(error.response.data.msgs);
         }
     };
 
@@ -162,6 +165,7 @@ const Sections = () => {
                     columns={addColumns}
                     setOpen={setOpen}
                     onSubmit={addSection}
+                    errors={errors}
                 />
             )}
 

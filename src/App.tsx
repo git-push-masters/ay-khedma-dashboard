@@ -11,6 +11,7 @@ import User from "./pages/user/User";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Requests from "./pages/requests";
 import Sections from "./pages/sections";
+import Admins from "./pages/admins";
 function App() {
     const Layout = () => {
         return (
@@ -40,6 +41,10 @@ function App() {
                 {
                     path: "/",
                     element: <Home />,
+                },
+                {
+                    path: "/admins",
+                    element: <Admins />,
                 },
                 {
                     path: "/users",

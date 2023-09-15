@@ -10,6 +10,12 @@ export const menu = [
                 icon: "HomeIcon",
             },
             {
+                id: 5,
+                title: "Admins",
+                url: "/admins",
+                icon: "UserIcon",
+            },
+            {
                 id: 2,
                 title: "Users",
                 url: "/users",
