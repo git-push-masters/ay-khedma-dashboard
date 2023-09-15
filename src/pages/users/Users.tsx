@@ -87,6 +87,7 @@ const Users = () => {
                 columns={columns}
                 rows={userRows}
                 handleDelete={handleDeleteUser}
+                setOpen={setOpen}
             />
             {open && <Add slug='users' columns={columns} setOpen={setOpen} />}
         </div>

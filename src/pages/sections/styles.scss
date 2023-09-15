@@ -1,6 +1,12 @@
 @import "../../assests/styles/responsive.scss";
+
+.icon {
+    object-fit: contain;
+}
+
 .users {
     width: 100%;
+
     @include xxl {
         width: 1000px;
     }

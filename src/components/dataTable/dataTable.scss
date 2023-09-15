@@ -1,8 +1,17 @@
 .dataTable {
     width: 100%;
+    position: relative;
 
     .addBtn {
         margin: 20px 0;
+        position: absolute;
+        z-index: 10;
+        right: 50%;
+        bottom: -55px;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        font-size: 1.8em;
     }
 
     .dataGrid {
@@ -16,8 +25,7 @@
         img {
             width: 32px;
             height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .action {

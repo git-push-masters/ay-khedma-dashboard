@@ -3,16 +3,17 @@ import "./add.scss";
 import { GridColDef } from "@mui/x-data-grid";
 interface Iprops {
     columns: any[];
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     slug: string;
+    row: any;
+    hide: () => void;
     onSubmit?: (e: any) => void;
 }
 const Add = (props: Iprops) => {
-    const { columns, setOpen, slug } = props;
+    const { columns, hide, slug } = props;
     return (
         <div className='add'>
             <div className='model'>
-                <span onClick={() => setOpen(false)} className='close'>
+                <span onClick={hide} className='close'>
                     x
                 </span>
                 <h1>Add new {slug}</h1>
@@ -27,6 +28,7 @@ const Add = (props: Iprops) => {
                                 <input
                                     type={column.type}
                                     placeholder={column.field}
+                                    value={column.value}
                                     onChange={column.onchange}
                                 />
                             </div>

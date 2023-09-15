@@ -1,8 +1,7 @@
 import "./dataTable.scss";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
-import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
 interface Iprops {
@@ -10,6 +9,8 @@ interface Iprops {
     rows: object[];
     slug: string;
     handleDelete: (id: string) => void;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    setEdit?: any;
 }
 
 const DataTable = (props: Iprops) => {
@@ -20,9 +21,14 @@ const DataTable = (props: Iprops) => {
         renderCell: params => {
             return (
                 <div className='action'>
-                    <Link to={`/${props.slug}/${params.row.id}`}>
-                        <VisibilityIcon />
-                    </Link>
+                    {props.setEdit && (
+                        <div
+                            className='edit'
+                            onClick={() => props.setEdit(params.row)}
+                        >
+                            <EditIcon />
+                        </div>
+                    )}
                     <div
                         className='delete'
                         onClick={() => props.handleDelete(params.row.id)}
@@ -36,9 +42,15 @@ const DataTable = (props: Iprops) => {
 
     return (
         <div className='dataTable'>
-            <Button variant='contained' className='addBtn'>
-                Add
-            </Button>
+            {props.setOpen && (
+                <Button
+                    variant='contained'
+                    className='addBtn'
+                    onClick={() => props.setOpen(true)}
+                >
+                    +
+                </Button>
+            )}
             <DataGrid
                 className='dataGrid'
                 rows={props.rows}
